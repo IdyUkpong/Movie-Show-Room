@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
   <title>Movie Show Room</title>
 
   <!-- Bootstrap CSS -->
@@ -12,6 +13,7 @@
       integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/stylesheets/layout.css">
 </head>
 <body>
 
@@ -53,63 +55,32 @@
   <p>Explore the latest movies and TV shows, and discover new favorites to watch.</p>
   
   <section>
-    <div class="container m-5 mt-5">
-      <div class="container px-4 text-center">
+    <div class="container my-5 mt-5">
+      <div class="container px-4">
         <div class="row gx-5 gy-4">
           <% movielist.forEach((film, index) => { %>
           <div class="col-md-4">
-            <div class="card h-100 position-relative">
-              <img src=<%= film.image %> class="card-img-top w-100 " alt="...">
-              <div class="card-body d-flex flex-column align-items-start">
-                <h5 class="card-title"><%= film.title %></h5>
-                <p class="card-text flex-grow-1 overflow-auto"><%= film.description %></p>
-                <div class="position-absolute bottom-0 end-0 mb-2">
-                  <div class="d-flex align-items-center">
-                    <a href="#" class="me-2">
-                      <i class="bi bi-pencil-square fs-4"></i>
-                    </a>
-                    <a href="#" class="text-danger trash-icon" data-index="<%= index %>">
-                      <i class="bi bi-trash fs-4"></i>
-                    </a>
-                  </div>
-                </div>
-                <div class="position-absolute bottom-0 start-0 mb-2">
-                  <a href="#" class="btn btn-primary">₦<%= film.price %></a>
+            <div class="card h-100" style="height: 400px;">
+              <img src=<%= film.image %> class="card-img-top w-100" style="height: 200px;" alt="...">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center"><%= film.title %></h5>
+                <p class="card-text flex-grow-1 align-items-center overflow-auto h-100 custom-scroll" style="max-height: 120px;"><%= film.description %></p>
+                <div>
+                  <a href="#" class="btn align-items-center btn-primary">₦<%= film.price %></a>
                 </div>
               </div>
             </div>
           </div>
           <% }) %>
         </div>
+        
       </div>
     </div>
+    
   </section>
   </div>
-
-
-
   <!-- Footer -->
-  <style>
-    footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-}
-  </style>
-  <style>
-  .row .col-md-3:first-of-type {
-    margin-bottom: 20px;
-  }
-  .row:first-child {
-    margin-bottom: 30px;
-  }
-</style>
-
-  <footer class="bg-dark text-white text-center py-3">
+  <footer class="bg-dark text-white text-center mt-3 py-3">
     <p>Copyright © 2023
       Movie Website</p>
   </footer>
