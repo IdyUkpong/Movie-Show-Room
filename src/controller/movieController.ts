@@ -30,14 +30,9 @@ export const AddMovie = async (req: Request | any, res:Response) => {
 
 export const getMovies = async(req:Request, res:Response) => {
     try {
-        // const limit = req.query?.limit as number | undefined;
-        // const offset = req.query?.offset as number | undefined;
-    // sequelize findAll or findAndCountAll
-
-    // const getAllMovies = await MovieInstance.findAll();
+    
     const getAllMovies = await MovieInstance.findAndCountAll({
-        // limit:limit,
-        // offset:offset
+      
     });
 
     return res.render("layout", {movielist: getAllMovies})

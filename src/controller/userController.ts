@@ -50,9 +50,7 @@ export const Register = async (req: Request, res: Response) => {
   
         res.cookie('token', token, {httpOnly:true, maxAge:30 * 60 * 1000})
   
-        // otp
-  
-        // Email
+      
   
         return res.redirect("/login")
       }
@@ -79,7 +77,7 @@ export const Register = async (req: Request, res: Response) => {
       })) as unknown as { [key: string]: string };
 
       if (!User) {
-        res.render("login", {error:"Invalid email/password"})
+        res.render("Login", {error:"Invalid email/password"})
       }
   
       const { id } = User;
@@ -98,14 +96,14 @@ export const Register = async (req: Request, res: Response) => {
       
     } catch (error) {
       console.log(error);
-    //   res.status(500).json({ Error: "Internal server error" });
+   
     }
   };
   
   
   export const getUserAndMovie = async(req:Request, res:Response)=>{
       try {
-      // sequelize findAll or findAndCountAll
+    
   
       const getAllUser = await UserInstance.findAndCountAll({
           include:[{

@@ -12,14 +12,10 @@ const router = express.Router();
 
 router.get('/', async(req:Request, res:Response) => {
     try {
-        // const limit = req.query?.limit as number | undefined;
-        // const offset = req.query?.offset as number | undefined;
-    // sequelize findAll or findAndCountAll
+       
 
-    // const getAllMovies = await MovieInstance.findAll();
     const getAllMovies = await MovieInstance.findAndCountAll({
-        // limit:limit,
-        // offset:offset
+      
     });
 
     return res.render("layout", {movielist: getAllMovies.rows})
@@ -34,26 +30,7 @@ router.get('/register', (req:Request, res:Response, next:NextFunction) => {
     res.render('Register')
 })
 
-//Display Home page
-// router.get('/dashboard', auth, async(req:Request | any, res:Response)=>{
-//     try{
-//        const { id } = req.user
-//        const {movie} = await UserInstance.findOne({where:{id}, include:{
-//         model:MovieInstance,
-//         as:"movie"
-//        }}) as unknown as any
-//        console.log('user object:', res.locals.user);
 
-//        return res.render("user", {
-//         movielist :movie,
-//         user: res.locals.user
-//        })
-
-   
-//     }catch(err){
-//      console.log(err)
-//     }
-//    } )
 
 router.get('/dashboard', auth, async(req:Request | any, res:Response)=>{
     try{
